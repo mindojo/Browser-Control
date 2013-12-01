@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Page</title>
+<script>
+function log(str) {
+  var p = document.createElement("p");
+  p.appendChild(document.createTextNode(str));
+  document.getElementById("console").appendChild(p);
+}
+function logEvent(event) {
+  log(event.target.tagName + ": " + event.type);
+}
+
+function changeTitle(event) {
+  document.title = "New Title"
+}
+
+function openUrl(event) {
+  location.href = document.getElementById("testinput").value
+}
+
+</script>
+</head>
+<body>
+  <div id="testdiv"
+       style="width:100px; height:100px; background-color:red"
+       tabindex="0"
+       onclick="return logEvent(event)"
+       onkeypress="return logEvent(event)">
+  </div>
+  <div id="console">
+  </div>
+  <input id="testinput" onchange="return logEvent(event)">
+  <input type="button" value="Open URL" onclick="return openUrl(event)">
+  <br>
+  <input type="button" value="Change title" onclick="return changeTitle(event)">
+  <br>
+  <select size="5" onchange="return logEvent(event)">
+    <option value="1">A</option>
+    <option value="2">B</option>
+    <option value="3">C</option>
+  </select>
+</body>
+</html>

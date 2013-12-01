@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+ 
+<prefwindow id="stockwatcher2-prefs"
+     title="Basic Browser Control"
+     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ 
+<prefpane id="bbcPrefpane" label="Basic Browser Control">
+  <preferences>
+    <preference id="prefLoopbackOnly"
+      name="extensions.basic-browser-control.loopbackOnly"
+      type="bool"/>
+    <preference id="prefPort"
+      name="extensions.basic-browser-control.port"
+      type="int"/>
+  </preferences>
+ 
+  <vbox>
+    <hbox align="center">
+      <label control="port" value="Port: "/>
+      <textbox preference="prefPort" id="port" maxlength="6"/>
+    </hbox>
+    <checkbox preference="prefLoopbackOnly"
+      id="loopbackOnly" label="Bind to loopback interface" />
+  </vbox>
+</prefpane>
+ 
+</prefwindow>

@@ -1,0 +1,10 @@
+#include "nsISupports.idl"
+
+interface nsIBaseWindow;
+
+[scriptable, uuid(E111832E-CD34-11DF-9F80-7DC5DFD72085)]
+interface bbcIActivateWindow: nsISupports
+{
+        void activate(in nsIBaseWindow aBaseWindow);
+};
+

@@ -1,0 +1,27 @@
+basic-browser-control-4
+		* Bump extension version number to 1.4 
+		* Implement -listen-port and -listen-loopback-only arguments 
+		  to change the coresponding preferences
+		* Add profile name to the title bar 
+		* Add get_cookies(), set_cookies() and add_cookies() 
+		* Add select() command 
+		* Add get_attribute() command
+		* Add get_selected_label() command 
+		* Add stop() command to quit the browser 
+		* Implement set_socks() and get_socks() 
+		* Check if the url contains an hash when using load() 
+		  avoids waiting forever for the page to load
+		* Add go_back() command equivalent to the back button
+		* Catch exception when socket is closed
+		  print a friendly error message to the console instead
+		* Add sequential id to every message sent
+		* Send a single response to open and click commands
+
+basic-browser-control-3
+		* Implement -connect-to-port and -connect-to-host
+		* Add a preference dialog 
+		* Display the port in the status bar 
+		* Changes to preferences take effect immediately
+
+basic-browser-control-2
+		* First vesrion

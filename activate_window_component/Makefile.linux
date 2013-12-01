@@ -1,0 +1,22 @@
+# Path to Gecko 2 xulrunner sdk
+MOZSDK=/opt/moz-sdk
+
+ARCH=Linux_x86_64-gcc3
+#ARCH=Linux_x86-gcc3
+
+all: ../basic-browser-control-extension/components/activate_window_component.xpt ../basic-browser-control-extension/platform/$(ARCH)/components/activate_window_component.so
+
+clean:
+	rm -f ../basic-browser-control-extension/components/activate_window_component.xpt ../basic-browser-control-extension/platform/$(ARCH)/components/activate_window_component.so activate_window_component.h
+
+../basic-browser-control-extension/components/activate_window_component.xpt: activate_window_component.idl
+	$(MOZSDK)/bin/xpidl -I$(MOZSDK)/idl -m typelib -o ../basic-browser-control-extension/components/activate_window_component activate_window_component.idl
+
+
+activate_window_component.h: activate_window_component.idl
+	$(MOZSDK)/bin/xpidl -I$(MOZSDK)/idl -m header activate_window_component.idl
+
+../basic-browser-control-extension/platform/$(ARCH)/components/activate_window_component.so: activate_window_component.cpp activate_window_component.h
+	mkdir -p ../basic-browser-control-extension/platform/$(ARCH)/components && g++ -shared -fPIC -Wall -o ../basic-browser-control-extension/platform/$(ARCH)/components/activate_window_component.so -DMOZ_NO_MOZALLOC -I/usr/include/nspr `pkg-config --cflags gtk+-2.0` -I$(MOZSDK)/include -L$(MOZSDK)/lib activate_window_component.cpp  -lxpcomglue_s_nomozalloc
+
+

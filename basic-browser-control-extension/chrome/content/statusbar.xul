@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+  src="chrome://basic-browser-control/content/statusbar.js"/>
+
+  <statusbar id="status-bar">
+    <statusbarpanel id="bbcStatusBar" label="Browser Control"
+      onclick="statusbarPreferences.open()" />
+  </statusbar>
+</overlay>

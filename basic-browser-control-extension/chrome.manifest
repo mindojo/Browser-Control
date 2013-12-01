@@ -1,0 +1,14 @@
+content basic-browser-control chrome/content/
+
+component {593c0b60-ba0e-11df-851a-0800200c9a66} components/basic-browser-control.js
+contract @example.com/remote-control-startup;1 {593c0b60-ba0e-11df-851a-0800200c9a66}
+category profile-after-change BBCStartup @example.com/remote-control-startup;1
+category command-line-handler BBCStartup @example.com/remote-control-startup;1
+
+overlay chrome://browser/content/browser.xul chrome://basic-browser-control/content/statusbar.xul
+overlay chrome://browser/content/browser.xul chrome://basic-browser-control/content/title.xul
+
+
+interfaces components/activate_window_component.xpt
+binary-component platform/Linux_x86-gcc3/components/activate_window_component.so ABI=Linux_x86-gcc3
+binary-component platform/Linux_x86_64-gcc3/components/activate_window_component.so ABI=Linux_x86_64-gcc3
